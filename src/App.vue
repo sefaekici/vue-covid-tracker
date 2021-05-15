@@ -1,71 +1,29 @@
 <template>
   <div id="app">
-    <div class="navbar">
-      <img src="./assets/icon-navbar.png" alt="">
-      <h2>COVİD19 TRACKER</h2>
-      <div></div>
-    </div>
+   
+    <appNavbar></appNavbar>
 
-    <div class="selector">
-      <select name="" id="">
-        <option value="">Genaral</option>
-      </select>
-    </div>
+    <appSelect></appSelect>
 
-    <div class="statistics">
-      <div class="total">
-        <h5>Total</h5>
-        <p>121212</p>
-      </div>
-      <div class="recovered">
-        <h5>Recovered</h5>
-        <p>121212</p>
-      </div>
-      <div class="deaths">
-        <h5>Deaths</h5>
-        <p>12.20202</p>
-      </div>
-    </div>
-
-    <div class="table-div">
-        <table class="table table-striped">
-          <thead>
-            <tr>
-              <th>Deneme</th>
-              <th>Deneme</th>
-              <th>Deneme</th>
-            </tr>
-          </thead>
-          
-
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>deneme</td>
-              <td>deneme</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>deneme</td>
-              <td>deneme</td>
-            </tr>
-            <tr>
-              <th scope="row">1</th>
-              <td>deneme</td>
-              <td>deneme</td>
-            </tr>
-
-          </tbody>
-
-        </table>
-
-    </div>
+    <appStatistics></appStatistics>
+    
+    <appTable></appTable>
 
   </div>
 </template>
 
 <script>
+import Navbar from "./componets/Navbar";
+import Table from "./componets/Table";
+import Statistics from "./componets/Statistics";
+import Select from "./componets/Select";
 export default {
+  components:{
+    appTable:Table,
+    appStatistics:Statistics,
+    appSelect:Select,
+    appNavbar:Navbar,
+  },
   data() {
     
   }
