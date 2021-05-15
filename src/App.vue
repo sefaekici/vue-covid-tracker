@@ -157,5 +157,13 @@ export default {
    
   }
 
-
+  @media screen and (max-width: 1000px) {
+  .statistics{
+    flex-direction: column;
+    margin-bottom:250px;
+  }
+  .statistics .deaths,.recovered,.total{
+    margin-bottom: 20px;
+  }
+}
 </style>
