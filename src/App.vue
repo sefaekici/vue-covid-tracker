@@ -17,6 +17,7 @@ import Navbar from "./componets/Navbar";
 import Table from "./componets/Table";
 import Statistics from "./componets/Statistics";
 import Select from "./componets/Select";
+import axios from "axios";
 export default {
   components:{
     appTable:Table,
@@ -26,6 +27,12 @@ export default {
   },
   data() {
     
+  },
+  created(){
+    axios.get("https://api.covid19api.com/countries")
+    .then(response=>{
+      this.$store.commit("setCountries",response.data);
+    })
   }
 };
 </script>
@@ -100,10 +107,10 @@ export default {
   }
 
   .statistics .total{
-    background:#ffffd2;
+    background:#a8d8ea;
   }
   .statistics .recovered{
-    background: #a8d8ea;
+    background: #9fe6a0;
   }
   .statistics .deaths{
      background: #f29191;
@@ -112,7 +119,7 @@ export default {
   .table-div{
     width: 75%;
     margin-top:4rem ;
-   
+    margin-bottom: 1.5rem;
   }
 
   @media screen and (max-width: 1000px) {
