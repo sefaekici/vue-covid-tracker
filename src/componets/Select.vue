@@ -22,7 +22,7 @@ export default {
             axios.get("https://api.covid19api.com/summary")
             .then(response=>{
                this.$store.commit("setStatistics",response.data.Global);
-               console.log(response.data.Global);
+               this.$store.commit("setSummaryData",response.data.Countries);
             })
         }
     },

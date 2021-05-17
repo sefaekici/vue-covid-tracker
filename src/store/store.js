@@ -12,7 +12,7 @@ export const store = new Vuex.Store({
       totalConfirmed: "-",
       totalRecovered: "-"
     },
-    summary: {}
+    summaryData: {}
   },
   getters: {
     getCountries(state) {
@@ -23,6 +23,9 @@ export const store = new Vuex.Store({
     },
     getSelectedCountry(state) {
       return state.selectedCountry;
+    },
+    getSummaryData(state) {
+      return state.summaryData;
     }
   },
   mutations: {
@@ -36,6 +39,9 @@ export const store = new Vuex.Store({
       state.statistics.totalConfirmed = paylaod.TotalConfirmed;
       state.statistics.totalDeaths = paylaod.TotalDeaths;
       state.statistics.totalRecovered = paylaod.TotalRecovered;
+    },
+    setSummaryData(state, payload) {
+      state.summaryData = payload;
     }
   }
 });

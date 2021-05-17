@@ -120,6 +120,29 @@ export default {
     width: 75%;
     margin-top:4rem ;
     margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .showTable{
+    margin-bottom: 2rem;
+    width: 80%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    outline: none;
+    background: #a8d8ea;
+  }
+
+  .button-blue{
+    background: #a8d8ea;
+  }
+
+  .button-red{
+    background: #f29191;
   }
 
   @media screen and (max-width: 1000px) {
