@@ -6,7 +6,7 @@
     <appSelect></appSelect>
 
     <appStatistics></appStatistics>
-    
+  
     <appTable></appTable>
 
   </div>
@@ -26,7 +26,7 @@ export default {
     appNavbar:Navbar,
   },
   data() {
-    
+    return{}
   },
   created(){
     axios.get("https://api.covid19api.com/countries")
