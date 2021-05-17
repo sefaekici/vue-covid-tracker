@@ -1,7 +1,6 @@
 <template>
      <div class="selector">
       <select  v-model="selectedCountry">
-        <option  value="Summary" selected>Summary</option>
         <option  v-for="country in countries" :value="country.Slug" :key="country.Slug">{{country.Country}}</option>
       </select>
     </div>
@@ -24,18 +23,40 @@ export default {
                this.$store.commit("setStatistics",response.data.Global);
                this.$store.commit("setSummaryData",response.data.Countries);
             })
+        },
+        getSpesifiCountry(){
+            //spesific olarak seçilen ülkenin bulunması sağlanmışltır.
+            const data=this.$store.state.summaryData.filter(country=>{
+                return country.Slug==this.selectedCountry;
+            })
+            //veri bulunamadıysa
+            if(data.length===0){
+                alert("Ülkeye dair veriler alınamadı!Tüm dünyanın verileri getirilecektir...");
+                //ülke bulunamadığı için global verilerin getirilmesi sağlanır.
+                this.setStatistics();
+            }
+            else{
+                console.log(data[0]);
+                this.$store.commit("setStatistics",data[0]);
+            }
         }
+        
     },
     computed:{
         countries(){
             return this.$store.getters.getCountries;
         },
+        
     },
     watch:{
         selectedCountry(){
             this.$store.commit("setSelectedCountry",this.selectedCountry);
-            this.setStatistics();
+            this.getSpesifiCountry();
         }
+    },
+    mounted(){
+        this.setStatistics();
     }
+
 }
 </script>
